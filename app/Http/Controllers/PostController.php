@@ -53,6 +53,7 @@ class PostController extends Controller
         // SELECT * FROM users WHERE id = ?; -- Wordt herhaald voor elke post
         // SELECT * FROM roles INNER JOIN role_user WHERE user_id = ?; -- Wordt herhaald voor elke user
 
+
         $posts = Post::with(['author.roles', 'photo', 'categories'])
             ->published()
             ->filter($search)
