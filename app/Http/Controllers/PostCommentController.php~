@@ -53,7 +53,6 @@ class PostCommentController extends Controller
         $post->comments()->create([
             'user_id' => auth()->id(),
             'body' => $request->body,
-            'parent_id' => $request->parent_id,
         ]);
 
         return redirect()->back()->with('success', 'Comment toegevoegd!');

@@ -4,10 +4,12 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FrontendPostController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 // frontend
 
@@ -16,6 +18,9 @@ Route::get('/posts/{post:slug}', [FrontendPostController::class, 'show'])->name(
 // Route voor het contactformulier
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+//route voor comments
+Route::post('/posts/{post}/comments', [PostCommentController::class, 'store'])->name('postcomment.store');
 
 // backend
 
